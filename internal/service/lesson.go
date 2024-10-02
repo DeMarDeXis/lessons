@@ -29,6 +29,10 @@ func (s *LessonService) GetAllDoneLesson() (*[]domain.Lesson, error) {
 	return s.storage.GetAllDoneLesson()
 }
 
+func (s *LessonService) GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error) {
+	return s.storage.GetAllDoneLessonByCourse(course)
+}
+
 func (s *LessonService) SendLessonForMarking(lessonID int) error {
 	return s.storage.SendLessonForMarking(lessonID)
 }

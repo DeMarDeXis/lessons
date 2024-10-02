@@ -13,6 +13,7 @@ type Lesson interface {
 	GetLessonByID(id int) (*domain.Lesson, error)
 	SendLessonForMarking(lessonID int) error
 	GetAllDoneLesson() (*[]domain.Lesson, error)
+	GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error)
 	UpdateLessonStatus(name int, status string) error
 }
 

@@ -99,6 +99,29 @@ func (h *Handler) getAllDoneLessons(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(lists)
 }
 
+func (h *Handler) getAllDoneLessonsByCourse(w http.ResponseWriter, r *http.Request) {
+	course := chi.URLParam(r, "course")
+	if course == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course")
+		return
+	}
+
+	courseInt, err := strconv.Atoi(course)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course")
+		return
+	}
+
+	lists, err := h.service.Lesson.GetAllDoneLessonByCourse(courseInt)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get all done lessons: %e", err))
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(lists)
+}
+
 func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	if id == "" {

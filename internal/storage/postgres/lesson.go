@@ -63,7 +63,7 @@ func (t *Lesson) GetLessonByName(name string) (*domain.Lesson, error) {
 
 func (t *Lesson) GetLessonByID(id int) (*domain.Lesson, error) {
 	var lesson domain.Lesson
-	q := fmt.Sprintf(`SELECT lesson_name, course_id, lesson_description  FROM %s WHERE lesson_id = $1`, lessonsTable)
+	q := fmt.Sprintf(`SELECT * FROM %s WHERE lesson_id = $1`, lessonsTable)
 	if err := t.db.Get(&lesson, q, id); err != nil {
 		t.logger.Error("failed to get lesson by id", slog.String("err", err.Error()))
 		return nil, err
@@ -83,6 +83,18 @@ func (t *Lesson) GetAllDoneLesson() (*[]domain.Lesson, error) {
 	return &lessons, nil
 }
 
+func (t *Lesson) GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error) {
+	var lessons []domain.Lesson
+	q := fmt.Sprintf(`SELECT lesson_name, course_id, lesson_description  FROM %s WHERE course_id = $1 AND status = $2`, lessonsTable)
+	err := t.db.Select(&lessons, q, course, "done")
+	if err != nil {
+		t.logger.Error("failed to get all done lessons by course", slog.String("err", err.Error()))
+		return nil, err
+	}
+
+	return &lessons, nil
+}
+
 func (t *Lesson) SendLessonForMarking(lessonID int) error {
 	q := fmt.Sprintf(`INSERT INTO %s (teacher_id, lesson_id, status, created_at, updated_at) VALUES ($1, $2, $3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`, teachersChecklistTable)
 	_, err := t.db.Exec(q, 1, lessonID, "done")
@@ -93,12 +105,31 @@ func (t *Lesson) SendLessonForMarking(lessonID int) error {
 	return nil
 }
 
+//func (t *Lesson) UpdateLessonStatus(name int, status string) error {
+//	q := fmt.Sprintf(`UPDATE %s SET status = $1 WHERE lesson_id = $2`, lessonsTable)
+//	_, err := t.db.Exec(q, status, name)
+//	if err != nil {
+//		t.logger.Error("failed to update lesson status", slog.String("err", err.Error()))
+//		return err
+//	}
+//	return nil
+//}
+
 func (t *Lesson) UpdateLessonStatus(name int, status string) error {
-	q := fmt.Sprintf(`UPDATE %s SET status = $1 WHERE lesson_id = $2`, lessonsTable)
-	_, err := t.db.Exec(q, status, name)
+	q := `UPDATE %s SET status = $1 WHERE lesson_id = $2 
+		AND status NOT IN ('done', 'rejected')`
+	q = fmt.Sprintf(q, lessonsTable)
+
+	result, err := t.db.Exec(q, status, name)
 	if err != nil {
 		t.logger.Error("failed to update lesson status", slog.String("err", err.Error()))
 		return err
 	}
+
+	rowsAffected, _ := result.RowsAffected()
+	if rowsAffected == 0 {
+		t.logger.Info("lesson status not updated: current status is Done or Rejected")
+	}
+
 	return nil
 }

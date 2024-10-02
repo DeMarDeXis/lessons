@@ -33,6 +33,7 @@ func (h *Handler) InitRoutes(logg *slog.Logger) chi.Router {
 		r.Get("/name/{name}", h.getLessonByName)
 		r.Get("/id/{id}", h.getLessonByID)
 		r.Get("/done", h.getAllDoneLessons)
+		r.Get("/done/{id}", h.getAllDoneLessons)
 		r.Put("/update/{id}", h.updateLessonStatus)
 		r.Post("/send/{id}", h.sendLessonForMarking)
 	})
