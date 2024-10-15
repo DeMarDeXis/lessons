@@ -11,7 +11,10 @@ const (
 )
 
 const (
+	coursesTable           = "courses"
 	lessonsTable           = "lessons"
+	lessonsCoursesTable    = "lessons_courses"
+	studentCourses         = "student_courses"
 	teachersChecklistTable = "teachers_checklist"
 )
 

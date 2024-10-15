@@ -1,0 +1,17 @@
+env: "local"
+
+http_server:
+  address: "localhost"
+  port: 8080
+  timeout: 4s
+  idle_timeout: 60s
+  read_timeout: 10s
+  write_timeout: 10s
+
+db:
+  host: "192.168.99.100"
+  port: "5432"
+  username: "postgres"
+  password: "qwerty"
+  db_name: "postgres"
+  ssl_mode: "disable"

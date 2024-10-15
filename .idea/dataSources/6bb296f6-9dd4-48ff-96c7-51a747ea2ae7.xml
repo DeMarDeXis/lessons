@@ -3,17 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>795</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1271</IntrospectionStateNumber>
       <ServerVersion>15.7</ServerVersion>
-      <StartupTime>1727876586</StartupTime>
+      <StartupTime>1728886371</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -114,7 +106,7 @@ false America/Argentina/San_Luis
 false America/Argentina/Tucuman
 false America/Argentina/Ushuaia
 false America/Aruba
-false America/Asuncion
+true America/Asuncion
 false America/Atikokan
 true America/Atka
 false America/Bahia
@@ -266,7 +258,7 @@ true America/Yellowknife
 false Antarctica/Casey
 false Antarctica/Davis
 false Antarctica/DumontDUrville
-false Antarctica/Macquarie
+true Antarctica/Macquarie
 false Antarctica/Mawson
 true Antarctica/McMurdo
 false Antarctica/Palmer
@@ -387,29 +379,29 @@ false Atlantic/Reykjavik
 false Atlantic/South_Georgia
 false Atlantic/St_Helena
 false Atlantic/Stanley
-false Australia/ACT
-false Australia/Adelaide
+true Australia/ACT
+true Australia/Adelaide
 false Australia/Brisbane
-false Australia/Broken_Hill
-false Australia/Canberra
-false Australia/Currie
+true Australia/Broken_Hill
+true Australia/Canberra
+true Australia/Currie
 false Australia/Darwin
 false Australia/Eucla
-false Australia/Hobart
-false Australia/LHI
+true Australia/Hobart
+true Australia/LHI
 false Australia/Lindeman
-false Australia/Lord_Howe
-false Australia/Melbourne
-false Australia/NSW
+true Australia/Lord_Howe
+true Australia/Melbourne
+true Australia/NSW
 false Australia/North
 false Australia/Perth
 false Australia/Queensland
-false Australia/South
-false Australia/Sydney
-false Australia/Tasmania
-false Australia/Victoria
+true Australia/South
+true Australia/Sydney
+true Australia/Tasmania
+true Australia/Victoria
 false Australia/West
-false Australia/Yancowinna
+true Australia/Yancowinna
 true BDST
 false BDT
 false BNT
@@ -624,7 +616,7 @@ false KRAST
 false KRAT
 false KST
 false Kwajalein
-false LHDT
+true LHDT
 false LHST
 false LIGT
 false LINT
@@ -685,7 +677,7 @@ false PST
 true PST8PDT
 false PWT
 true PYST
-false PYT
+true PYT
 false Pacific/Apia
 true Pacific/Auckland
 false Pacific/Bougainville
@@ -712,7 +704,7 @@ false Pacific/Marquesas
 false Pacific/Midway
 false Pacific/Nauru
 false Pacific/Niue
-false Pacific/Norfolk
+true Pacific/Norfolk
 false Pacific/Noumea
 false Pacific/Pago_Pago
 false Pacific/Palau
@@ -869,7 +861,7 @@ false posix/America/Argentina/San_Luis
 false posix/America/Argentina/Tucuman
 false posix/America/Argentina/Ushuaia
 false posix/America/Aruba
-false posix/America/Asuncion
+true posix/America/Asuncion
 false posix/America/Atikokan
 true posix/America/Atka
 false posix/America/Bahia
@@ -1021,7 +1013,7 @@ true posix/America/Yellowknife
 false posix/Antarctica/Casey
 false posix/Antarctica/Davis
 false posix/Antarctica/DumontDUrville
-false posix/Antarctica/Macquarie
+true posix/Antarctica/Macquarie
 false posix/Antarctica/Mawson
 true posix/Antarctica/McMurdo
 false posix/Antarctica/Palmer
@@ -1142,29 +1134,29 @@ false posix/Atlantic/Reykjavik
 false posix/Atlantic/South_Georgia
 false posix/Atlantic/St_Helena
 false posix/Atlantic/Stanley
-false posix/Australia/ACT
-false posix/Australia/Adelaide
+true posix/Australia/ACT
+true posix/Australia/Adelaide
 false posix/Australia/Brisbane
-false posix/Australia/Broken_Hill
-false posix/Australia/Canberra
-false posix/Australia/Currie
+true posix/Australia/Broken_Hill
+true posix/Australia/Canberra
+true posix/Australia/Currie
 false posix/Australia/Darwin
 false posix/Australia/Eucla
-false posix/Australia/Hobart
-false posix/Australia/LHI
+true posix/Australia/Hobart
+true posix/Australia/LHI
 false posix/Australia/Lindeman
-false posix/Australia/Lord_Howe
-false posix/Australia/Melbourne
-false posix/Australia/NSW
+true posix/Australia/Lord_Howe
+true posix/Australia/Melbourne
+true posix/Australia/NSW
 false posix/Australia/North
 false posix/Australia/Perth
 false posix/Australia/Queensland
-false posix/Australia/South
-false posix/Australia/Sydney
-false posix/Australia/Tasmania
-false posix/Australia/Victoria
+true posix/Australia/South
+true posix/Australia/Sydney
+true posix/Australia/Tasmania
+true posix/Australia/Victoria
 false posix/Australia/West
-false posix/Australia/Yancowinna
+true posix/Australia/Yancowinna
 false posix/Brazil/Acre
 false posix/Brazil/DeNoronha
 false posix/Brazil/East
@@ -1351,7 +1343,7 @@ false posix/Pacific/Marquesas
 false posix/Pacific/Midway
 false posix/Pacific/Nauru
 false posix/Pacific/Niue
-false posix/Pacific/Norfolk
+true posix/Pacific/Norfolk
 false posix/Pacific/Noumea
 false posix/Pacific/Pago_Pago
 false posix/Pacific/Palau
@@ -1408,7 +1400,7 @@ true posixrules
 13186||10|C|G
 13186||-9223372036854775808|U|G
 13186||10|U|G</Grants>
-      <IntrospectionStateNumber>795</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1271</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4821,195 +4813,439 @@ true posixrules
     <schema id="261" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>795</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-10-02.13:46:08</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1271</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-10-15.08:02:42</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <object-type id="262" parent="261" name="status_enum">
-      <Labels>draft
+    <object-type id="262" parent="261" name="check_status_enum">
+      <Labels>On checking
 done
 rejected</Labels>
-      <ObjectId>16457</ObjectId>
-      <StateNumber>782</StateNumber>
+      <ObjectId>18002</ObjectId>
+      <StateNumber>1255</StateNumber>
       <SubCategory>enum</SubCategory>
       <SubKind>enum</SubKind>
       <OwnerName>postgres</OwnerName>
     </object-type>
-    <sequence id="263" parent="261" name="lessons_lesson_id_seq">
-      <ObjectId>16443</ObjectId>
+    <object-type id="263" parent="261" name="lesson_type_enum">
+      <Labels>lecture
+practice</Labels>
+      <ObjectId>17975</ObjectId>
+      <StateNumber>1252</StateNumber>
+      <SubCategory>enum</SubCategory>
+      <SubKind>enum</SubKind>
+      <OwnerName>postgres</OwnerName>
+    </object-type>
+    <object-type id="264" parent="261" name="status_enum">
+      <Labels>Not start
+send
+rejected</Labels>
+      <ObjectId>17980</ObjectId>
+      <StateNumber>1252</StateNumber>
+      <SubCategory>enum</SubCategory>
+      <SubKind>enum</SubKind>
+      <OwnerName>postgres</OwnerName>
+    </object-type>
+    <sequence id="265" parent="261" name="courses_id_seq">
+      <ObjectId>18025</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>779</StateNumber>
+      <StateNumber>1258</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="264" parent="261" name="teachers_checklist_id_seq">
-      <ObjectId>16469</ObjectId>
+    <sequence id="266" parent="261" name="lessons_courses_id_seq">
+      <ObjectId>18036</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>782</StateNumber>
+      <StateNumber>1258</StateNumber>
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="265" parent="261" name="lessons">
-      <ObjectId>16444</ObjectId>
-      <StateNumber>782</StateNumber>
+    <sequence id="267" parent="261" name="lessons_lesson_id_seq">
+      <ObjectId>17987</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>1252</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="268" parent="261" name="student_courses_id_seq">
+      <ObjectId>18057</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>1261</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="269" parent="261" name="teachers_checklist_id_seq">
+      <ObjectId>18009</ObjectId>
+      <SequenceIdentity>1</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>1255</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="270" parent="261" name="courses">
+      <ObjectId>18026</ObjectId>
+      <StateNumber>1258</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="266" parent="261" name="schema_migrations">
-      <ObjectId>16388</ObjectId>
-      <StateNumber>783</StateNumber>
+    <table id="271" parent="261" name="lessons">
+      <ObjectId>17988</ObjectId>
+      <StateNumber>1258</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="267" parent="261" name="teachers_checklist">
-      <ObjectId>16470</ObjectId>
-      <StateNumber>782</StateNumber>
+    <table id="272" parent="261" name="lessons_courses">
+      <ObjectId>18037</ObjectId>
+      <StateNumber>1258</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="268" parent="265" name="lesson_id">
+    <table id="273" parent="261" name="schema_migrations">
+      <ObjectId>17186</ObjectId>
+      <StateNumber>1262</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="274" parent="261" name="student_courses">
+      <ObjectId>18058</ObjectId>
+      <StateNumber>1261</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="275" parent="261" name="teachers_checklist">
+      <ObjectId>18010</ObjectId>
+      <StateNumber>1255</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="276" parent="270" name="id">
+      <DefaultExpression>nextval(&apos;courses_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>18025</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="277" parent="270" name="name">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>varchar(255)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="278" parent="270" name="description">
+      <Position>3</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>text|0s</StoredType>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="279" parent="270" name="created_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>4</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="280" parent="270" name="updated_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>5</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="281" parent="270" name="owner_id">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="282" parent="270" name="courses_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18034</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1258</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="283" parent="270" name="courses_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18035</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1258</StateNumber>
+      <UnderlyingIndexId>18034</UnderlyingIndexId>
+    </key>
+    <column id="284" parent="271" name="lesson_id">
       <DefaultExpression>nextval(&apos;lessons_lesson_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>779</StateNumber>
+      <StateNumber>1252</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>16443</SequenceId>
+      <SequenceId>17987</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="269" parent="265" name="course_id">
+    <column id="285" parent="271" name="lesson_type">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>779</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
+      <StateNumber>1252</StateNumber>
+      <StoredType>lesson_type_enum|0s</StoredType>
+      <TypeId>17975</TypeId>
     </column>
-    <column id="270" parent="265" name="lesson_name">
+    <column id="286" parent="271" name="lesson_name">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>779</StateNumber>
+      <StateNumber>1252</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="271" parent="265" name="lesson_description">
+    <column id="287" parent="271" name="lesson_description">
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>779</StateNumber>
+      <StateNumber>1252</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="272" parent="265" name="status">
+    <column id="288" parent="271" name="lesson_file_name">
       <Position>5</Position>
-      <StateNumber>782</StateNumber>
-      <StoredType>status_enum|0s</StoredType>
-      <TypeId>16457</TypeId>
+      <StateNumber>1252</StateNumber>
+      <StoredType>varchar(255)|0s</StoredType>
+      <TypeId>1043</TypeId>
     </column>
-    <index id="273" parent="265" name="lessons_lesson_id_key">
+    <column id="289" parent="271" name="lesson_file_content">
+      <Position>6</Position>
+      <StateNumber>1252</StateNumber>
+      <StoredType>bytea|0s</StoredType>
+      <TypeId>17</TypeId>
+    </column>
+    <column id="290" parent="271" name="lesson_status">
+      <DefaultExpression>&apos;Not start&apos;::status_enum</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StateNumber>1252</StateNumber>
+      <StoredType>status_enum|0s</StoredType>
+      <TypeId>17980</TypeId>
+    </column>
+    <index id="291" parent="271" name="lessons_lesson_id_key">
       <ColNames>lesson_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16450</ObjectId>
-      <StateNumber>782</StateNumber>
+      <ObjectId>17995</ObjectId>
+      <StateNumber>1252</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="274" parent="265" name="lessons_lesson_id_key">
+    <key id="292" parent="271" name="lessons_lesson_id_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16451</ObjectId>
-      <StateNumber>779</StateNumber>
-      <UnderlyingIndexId>16450</UnderlyingIndexId>
+      <ObjectId>17996</ObjectId>
+      <StateNumber>1252</StateNumber>
+      <UnderlyingIndexId>17995</UnderlyingIndexId>
     </key>
-    <column id="275" parent="266" name="version">
+    <column id="293" parent="272" name="id">
+      <DefaultExpression>nextval(&apos;lessons_courses_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>1258</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>18036</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="294" parent="272" name="lesson_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="295" parent="272" name="course_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>1258</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="296" parent="272" name="lessons_courses_lesson_id_fkey">
+      <ColNames>lesson_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18043</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1258</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>17988</RefTableId>
+    </foreign-key>
+    <foreign-key id="297" parent="272" name="lessons_courses_course_id_fkey">
+      <ColNames>course_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18048</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1258</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>18026</RefTableId>
+    </foreign-key>
+    <index id="298" parent="272" name="lessons_courses_id_key">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18041</ObjectId>
+      <StateNumber>1258</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="299" parent="272" name="lessons_courses_id_key">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18042</ObjectId>
+      <StateNumber>1258</StateNumber>
+      <UnderlyingIndexId>18041</UnderlyingIndexId>
+    </key>
+    <column id="300" parent="273" name="version">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1034</StateNumber>
       <StoredType>bigint|0s</StoredType>
       <TypeId>20</TypeId>
     </column>
-    <column id="276" parent="266" name="dirty">
+    <column id="301" parent="273" name="dirty">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>736</StateNumber>
+      <StateNumber>1034</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <index id="277" parent="266" name="schema_migrations_pkey">
+    <index id="302" parent="273" name="schema_migrations_pkey">
       <ColNames>version</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16391</ObjectId>
+      <ObjectId>17189</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>783</StateNumber>
+      <StateNumber>1262</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="278" parent="266" name="schema_migrations_pkey">
+    <key id="303" parent="273" name="schema_migrations_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16392</ObjectId>
+      <ObjectId>17190</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>736</StateNumber>
-      <UnderlyingIndexId>16391</UnderlyingIndexId>
+      <StateNumber>1034</StateNumber>
+      <UnderlyingIndexId>17189</UnderlyingIndexId>
     </key>
-    <column id="279" parent="267" name="id">
+    <column id="304" parent="274" name="id">
+      <DefaultExpression>nextval(&apos;student_courses_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1261</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <SequenceId>18057</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="305" parent="274" name="course_id">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>1261</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="306" parent="274" name="student_id">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>1261</StateNumber>
+      <StoredType>integer|0s</StoredType>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="307" parent="274" name="student_courses_course_id_fkey">
+      <ColNames>course_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18064</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>1261</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>18026</RefTableId>
+    </foreign-key>
+    <index id="308" parent="274" name="student_courses_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18062</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1261</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="309" parent="274" name="student_courses_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>18063</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1261</StateNumber>
+      <UnderlyingIndexId>18062</UnderlyingIndexId>
+    </key>
+    <column id="310" parent="275" name="id">
       <DefaultExpression>nextval(&apos;teachers_checklist_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>782</StateNumber>
+      <StateNumber>1255</StateNumber>
       <StoredType>integer|0s</StoredType>
-      <SequenceId>16469</SequenceId>
+      <SequenceId>18009</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="280" parent="267" name="teacher_id">
+    <column id="311" parent="275" name="teacher_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>782</StateNumber>
+      <StateNumber>1255</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="281" parent="267" name="lesson_id">
+    <column id="312" parent="275" name="lesson_id">
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>782</StateNumber>
+      <StateNumber>1255</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="282" parent="267" name="status">
+    <column id="313" parent="275" name="status">
+      <DefaultExpression>&apos;On checking&apos;::check_status_enum</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>782</StateNumber>
-      <StoredType>status_enum|0s</StoredType>
-      <TypeId>16457</TypeId>
+      <StateNumber>1255</StateNumber>
+      <StoredType>check_status_enum|0s</StoredType>
+      <TypeId>18002</TypeId>
     </column>
-    <column id="283" parent="267" name="created_at">
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    <column id="314" parent="275" name="homework">
       <Position>5</Position>
-      <StateNumber>782</StateNumber>
-      <StoredType>timestamp|0s</StoredType>
-      <TypeId>1114</TypeId>
+      <StateNumber>1255</StateNumber>
+      <StoredType>bytea|0s</StoredType>
+      <TypeId>17</TypeId>
     </column>
-    <column id="284" parent="267" name="updated_at">
+    <column id="315" parent="275" name="created_at">
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>6</Position>
-      <StateNumber>782</StateNumber>
+      <StateNumber>1255</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <index id="285" parent="267" name="teachers_checklist_pkey">
+    <column id="316" parent="275" name="updated_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>7</Position>
+      <StateNumber>1255</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="317" parent="275" name="teachers_checklist_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16476</ObjectId>
+      <ObjectId>18019</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>782</StateNumber>
+      <StateNumber>1255</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="286" parent="267" name="teachers_checklist_pkey">
+    <key id="318" parent="275" name="teachers_checklist_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16477</ObjectId>
+      <ObjectId>18020</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>782</StateNumber>
-      <UnderlyingIndexId>16476</UnderlyingIndexId>
+      <StateNumber>1255</StateNumber>
+      <UnderlyingIndexId>18019</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

@@ -46,11 +46,11 @@ func main() {
 	logg.Info("storage init", slog.String("storage", "postgres"))
 
 	//TODO: init services
-	service := service.NewService(storageInit)
+	srvce := service.NewService(storageInit)
 	logg.Info("service init", slog.String("service", "postgres"))
 
 	//TODO: init handlers and routes
-	handlers := httphandler.NewHandler(service, logg)
+	handlers := httphandler.NewHandler(srvce, logg)
 	logg.Info("handler init", slog.String("handler", "postgres"))
 
 	//TODO: init server

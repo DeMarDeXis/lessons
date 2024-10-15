@@ -1,71 +1,47 @@
 # All routes and their descriptions
 
-- **POST** > sign_up = '***/auth/sign-up***'
-    - JSON-Body:
-  ```
-  {
-  "name": "Tim",
-  "username": "TimAnderson7",
-  "password": "qwerty"
-  }
-  ```
-
-
-- **POST** > sign_in = '***/auth/sign-in***'
+- **POST** > _create lesson_ = '***.../lessons/create***'
   - JSON-Body:
-  ```
-  {
-  "username": "TimAnderson7",
-  "password": "qwerty"
-  }
-  ```
+```
+{
+"lesson_type": "lecture",
+"name": "TimAnderson",
+"description": "Desc of checking"
+}
+```
+
+- **GET** > _get lesson by **name**_ = '***.../lessons/id/{id}***'
   - Output:
+```
+{
+"lesson_id": 2,
+"lesson_type": "practice",
+"name": "TimAnderson",
+"description": "Upd desc for debug",
+"lesson_file": "triple.txt",
+"file_content": "dGltQW5kZXJzb243IQ==",
+"lesson_status": "send"
+}
+```
+  
+- **PUT** > update lesson = `***/lessons/update/{id}***`
+  + JSON-Body:
+```
+{
+"lesson_type": "practice",
+//"name": "UpdName",
+"description": "Upd desc for debug"
+}
+```
+
+- **POST** > attach file to the lesson = `***/lessons/upload/{id_lesson}/{filename}***`
+  + Output:
   ```
-  {
-  "token": "<HERE_IS_TOKEN>"
-  }
+  File uploaded successfully
   ```
   
-- **POST** > tasks = `***/app/tasks***`
-  + Authorization > Bearer Token
-  + JSON-Body:
-  ```
-    {
-    "title": "Serbia Ultras",
-    "description": "Partizan",
-    "doe_date": "2026-01-02T15:04:05Z"
-    }
-  ```
+- **POST** > tasks = `***/lessons/send/{id}***`
   + Output:
   ```
-    {
-    "id": 4
-    }
+  <status:ok>
   ```
-- **GET** > tasks = `***/app/tasks***`
-  + Authorization > Bearer Token
-  + Output:
-  ```
-  <Tareas de personas que estan en la base de datos>
-  ```
-- **GET** > tasks = `***/app/tasks/id***`
-  + Authorization > Bearer Token
-  + Output:
-  ```
-  <Tarea de usario que esta en la base de datos>
-  ```
-**PUT** > tasks = `***/app/tasks/id***`
-  + Authorization > Bearer Token
-  + JSON-Body:
-  ```
-    {
-    "title": "Serbia Ultras",
-    "description": "Crvena Zvezda",
-    "doe_date": "2026-12-22T15:04:05Z"
-    }
-  ```
-  + Output:
-  ```
-    {
-     "status": "ok"
-    }

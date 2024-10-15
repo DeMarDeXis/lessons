@@ -1,5 +1,5 @@
-ALTER TABLE lessons DROP COLUMN IF EXISTS status;
+BEGIN;
 
-DROP TYPE IF EXISTS status_enum;
+DROP TABLE teachers_checklist;
 
-DROP TABLE IF EXISTS teachers_checklist;
+COMMIT;

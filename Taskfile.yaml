@@ -1,0 +1,45 @@
+version: '3'
+
+tasks:
+  launcher:
+    aliases:
+    - l
+    desc: "run launcher"
+    cmds:
+      - echo "Checking machine..."
+      - docker-machine start default || echo "Máquina iniciada o error"
+      - timeout /t 5 /nobreak
+      - echo "Checking all machines and running machines..."
+      - docker ps -a || echo "Failed to list all Docker containers"
+      - timeout /t 5 /nobreak
+      - docker ps || echo "Failed to list running Docker containers"
+      - timeout /t 5 /nobreak
+      - docker start lessons-db || echo "Failed to start Docker container"
+      - timeout /t 5 /nobreak
+      - echo check actual docker container
+      - docker ps || echo "Failed to list running Docker containers"
+      - echo "Checking images..."
+      - docker images || echo "Failed to list Docker images"
+
+  main:
+    aliases:
+      - m
+    desc: "run main"
+    cmds:
+      - go run ./cmd/lessons/main.go
+
+  exit:
+    aliases:
+      - e
+    desc: "Exit cmd for clear desktop"
+    cmds:
+      - timeout /t 5 /nobreak
+      - echo "Cmd is starting..."
+      - docker stop lessons-db || echo "Failed to stop Docker container"
+      - echo "Check docker..."
+      - docker ps
+      - echo "Check all docker..."
+      - docker ps -a
+      - echo "Stop docker machine..."
+      - docker-machine stop default || echo "Failed to stop Docker machine"
+      - echo "Success!! Pls check logs"

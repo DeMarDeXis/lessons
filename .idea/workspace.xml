@@ -5,12 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a51ef867-09bc-49f5-9fae-a04e8bac767f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/lessons/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/lessons/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/domain/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/domain/lesson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/domain/сourse.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/domain/сourse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/httphandler/course.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/course.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/httphandler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/httphandler/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/lesson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/course.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/course.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/lesson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/postgres/course.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/postgres/course.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/postgres/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/postgres/lesson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/postgres/postgres.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/postgres/postgres.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lessonFiles/check.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/000001_init.down.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000001_init.down.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/000001_init.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000001_init.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/000002_add_status_col_and_checklist.down.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000002_add_status_col_and_checklist.down.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema/000002_add_status_col_and_checklist.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000002_add_status_col_and_checklist.up.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../../Program Files/Go" />
   <component name="Git.Settings">
@@ -27,6 +56,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
     &quot;RunOnceActivity.CodyAccountHistoryMigration&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.CodyAccountsIdsRefresh&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount&quot;: &quot;true&quot;,
@@ -39,10 +69,11 @@
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/GitHub/ТЗdeNick/lessons/docs&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -54,6 +85,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\ТЗdeNick\lessons\docs" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

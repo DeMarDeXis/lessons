@@ -9,10 +9,6 @@ import (
 	"strconv"
 )
 
-type GetAllDoneLesson struct {
-	Data []domain.Lesson `json:"data"`
-}
-
 func (h *Handler) createLesson(w http.ResponseWriter, r *http.Request) {
 	var input domain.Lesson
 
@@ -84,6 +80,88 @@ func (h *Handler) getLessonByID(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(lesson)
 }
 
+func (h *Handler) updateLesson(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	if id == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
+		return
+	}
+
+	idInt, err := strconv.Atoi(id)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
+		return
+	}
+
+	var input domain.UpdateLesson
+	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, err.Error())
+		return
+	}
+	if err := input.Validate(); err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, err.Error())
+		return
+	}
+
+	if err := h.service.Lesson.UpdateLesson(idInt, &input); err != nil {
+		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to update lesson: %s, %e", id, err))
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+}
+
+func (h *Handler) uploadFile(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	if id == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
+		return
+	}
+
+	filename := chi.URLParam(r, "filename") + ".txt"
+	if filename == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid filename")
+		return
+	}
+
+	idInt, err := strconv.Atoi(id)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
+		return
+	}
+
+	filedata := r.FormValue("content")
+
+	if err := h.service.Lesson.UploadFile(idInt, filename, []byte(filedata)); err != nil {
+		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to upload file: %s, %e", id, err))
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("File uploaded successfully"))
+}
+
+func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	if id == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
+		return
+	}
+
+	idInt, err := strconv.Atoi(id)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
+		return
+	}
+
+	if err := h.service.Lesson.SendLessonForMarking(idInt); err != nil {
+		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to send lesson for marking: %s, %e", id, err))
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+}
+
 func (h *Handler) getAllDoneLessons(w http.ResponseWriter, r *http.Request) {
 	lists, err := h.service.Lesson.GetAllDoneLesson()
 	if err != nil {
@@ -120,60 +198,4 @@ func (h *Handler) getAllDoneLessonsByCourse(w http.ResponseWriter, r *http.Reque
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(lists)
-}
-
-func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-	if id == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
-		return
-	}
-
-	idInt, err := strconv.Atoi(id)
-	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
-		return
-	}
-
-	if err := h.service.Lesson.SendLessonForMarking(idInt); err != nil {
-		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to send lesson for marking: %s, %e", id, err))
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
-}
-
-func (h *Handler) updateLessonStatus(w http.ResponseWriter, r *http.Request) {
-	id := chi.URLParam(r, "id")
-	if id == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
-		return
-	}
-
-	idInt, err := strconv.Atoi(id)
-	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
-		return
-	}
-
-	var input domain.UpdateLessonStatus
-	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, err.Error())
-		return
-	}
-	if err := input.Validate(); err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, err.Error())
-		return
-	}
-
-	if input.LessonID != nil {
-		idInt = *input.LessonID
-	}
-
-	if err := h.service.Lesson.UpdateLessonStatus(idInt, *input.Status); err != nil {
-		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to update lesson status: %s, %e", id, err))
-		return
-	}
-
-	w.WriteHeader(http.StatusOK)
 }
