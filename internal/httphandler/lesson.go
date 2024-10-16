@@ -10,6 +10,18 @@ import (
 )
 
 func (h *Handler) createLesson(w http.ResponseWriter, r *http.Request) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
 	var input domain.Lesson
 
 	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
@@ -17,7 +29,7 @@ func (h *Handler) createLesson(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id, err := h.service.Lesson.CreateLesson(&input)
+	id, err := h.service.Lesson.CreateLesson(courseIDInt, &input)
 	if err != nil {
 		newErrorResponse(w, h.logg, http.StatusInternalServerError, err.Error())
 		return
@@ -30,13 +42,25 @@ func (h *Handler) createLesson(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) getLessonByName(w http.ResponseWriter, r *http.Request) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
 	name := chi.URLParam(r, "name")
 	if name == "" {
 		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid name")
 		return
 	}
 
-	lesson, err := h.service.Lesson.GetLessonByName(name)
+	lesson, err := h.service.Lesson.GetLessonByName(courseIDInt, name)
 	if err != nil {
 		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get lesson by name: %s, %e", name, err))
 		return
@@ -53,6 +77,18 @@ func (h *Handler) getLessonByName(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) getLessonByID(w http.ResponseWriter, r *http.Request) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
 	id := chi.URLParam(r, "id")
 	if id == "" {
 		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
@@ -64,7 +100,7 @@ func (h *Handler) getLessonByID(w http.ResponseWriter, r *http.Request) {
 		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
 		return
 	}
-	lesson, err := h.service.Lesson.GetLessonByID(idInt)
+	lesson, err := h.service.Lesson.GetLessonByID(courseIDInt, idInt)
 	if err != nil {
 		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get lesson by id: %s, %e", id, err))
 		return
@@ -80,7 +116,44 @@ func (h *Handler) getLessonByID(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(lesson)
 }
 
+func (h *Handler) getAllLessons(w http.ResponseWriter, r *http.Request) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	lessons, err := h.service.Lesson.GetAllLessons(courseIDInt)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get all lessons: %e", err))
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	//response := map[string]interface{}{"lessons": lessons}
+	json.NewEncoder(w).Encode(lessons)
+}
+
 func (h *Handler) updateLesson(w http.ResponseWriter, r *http.Request) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
 	id := chi.URLParam(r, "id")
 	if id == "" {
 		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
@@ -103,7 +176,7 @@ func (h *Handler) updateLesson(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := h.service.Lesson.UpdateLesson(idInt, &input); err != nil {
+	if err := h.service.Lesson.UpdateLesson(courseIDInt, idInt, &input); err != nil {
 		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to update lesson: %s, %e", id, err))
 		return
 	}
@@ -112,6 +185,18 @@ func (h *Handler) updateLesson(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) uploadFile(w http.ResponseWriter, r *http.Request) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
 	id := chi.URLParam(r, "id")
 	if id == "" {
 		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
@@ -132,7 +217,7 @@ func (h *Handler) uploadFile(w http.ResponseWriter, r *http.Request) {
 
 	filedata := r.FormValue("content")
 
-	if err := h.service.Lesson.UploadFile(idInt, filename, []byte(filedata)); err != nil {
+	if err := h.service.Lesson.UploadFile(courseIDInt, idInt, filename, []byte(filedata)); err != nil {
 		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to upload file: %s, %e", id, err))
 		return
 	}
@@ -142,6 +227,18 @@ func (h *Handler) uploadFile(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return
+	}
+
 	id := chi.URLParam(r, "id")
 	if id == "" {
 		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid id")
@@ -154,7 +251,7 @@ func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := h.service.Lesson.SendLessonForMarking(idInt); err != nil {
+	if err := h.service.Lesson.SendLessonForMarking(courseIDInt, idInt); err != nil {
 		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to send lesson for marking: %s, %e", id, err))
 		return
 	}
@@ -162,40 +259,42 @@ func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
-func (h *Handler) getAllDoneLessons(w http.ResponseWriter, r *http.Request) {
-	lists, err := h.service.Lesson.GetAllDoneLesson()
-	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get all done lessons: %e", err))
-		return
-	}
+//TODO: do it
+//func (h *Handler) getAllDoneLessons(w http.ResponseWriter, r *http.Request) {
+//	lists, err := h.service.Lesson.GetAllDoneLesson()
+//	if err != nil {
+//		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get all done lessons: %e", err))
+//		return
+//	}
+//
+//	w.Header().Set("Content-Type", "application/json")
+//	w.WriteHeader(http.StatusOK)
+//	//response := GetAllDoneLesson{
+//	//	Data: lists,
+//	//}
+//	json.NewEncoder(w).Encode(lists)
+//}
 
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	//response := GetAllDoneLesson{
-	//	Data: lists,
-	//}
-	json.NewEncoder(w).Encode(lists)
-}
-
-func (h *Handler) getAllDoneLessonsByCourse(w http.ResponseWriter, r *http.Request) {
-	course := chi.URLParam(r, "course")
-	if course == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course")
-		return
-	}
-
-	courseInt, err := strconv.Atoi(course)
-	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course")
-		return
-	}
-
-	lists, err := h.service.Lesson.GetAllDoneLessonByCourse(courseInt)
-	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get all done lessons: %e", err))
-		return
-	}
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(lists)
-}
+//TODO: do it
+//func (h *Handler) getAllDoneLessonsByCourse(w http.ResponseWriter, r *http.Request) {
+//	course := chi.URLParam(r, "course")
+//	if course == "" {
+//		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course")
+//		return
+//	}
+//
+//	courseInt, err := strconv.Atoi(course)
+//	if err != nil {
+//		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course")
+//		return
+//	}
+//
+//	lists, err := h.service.Lesson.GetAllDoneLessonByCourse(courseInt)
+//	if err != nil {
+//		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to get all done lessons: %e", err))
+//		return
+//	}
+//	w.Header().Set("Content-Type", "application/json")
+//	w.WriteHeader(http.StatusOK)
+//	json.NewEncoder(w).Encode(lists)
+//}

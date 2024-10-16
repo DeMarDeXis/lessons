@@ -16,15 +16,16 @@ type Courses interface {
 }
 
 type Lesson interface {
-	CreateLesson(lesson *domain.Lesson) (int, error)
-	GetLessonByName(name string) (*domain.Lesson, error)
-	GetLessonByID(id int) (*domain.Lesson, error)
-	UpdateLesson(id int, lessonData *domain.UpdateLesson) error
-	UploadFile(lessonID int, fileName string, fileData []byte) error
-	SendLessonForMarking(lessonID int) error
-	GetAllDoneLesson() (*[]domain.Lesson, error)
-	//TODO: check it
-	GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error)
+	CreateLesson(courseID int, lesson *domain.Lesson) (int, error)
+	GetLessonByName(courseID int, name string) (*domain.Lesson, error)
+	GetLessonByID(courseID int, id int) (*domain.Lesson, error)
+	GetAllLessons(courseID int) (*[]domain.Lesson, error)
+	UpdateLesson(courseID int, id int, lessonData *domain.UpdateLesson) error
+	UploadFile(courseID int, lessonID int, fileName string, fileData []byte) error
+	SendLessonForMarking(courseID int, lessonID int) error
+	//GetAllLesson() (*[]domain.Lesson, error)
+	//GetAllDoneLesson(status string) (*[]domain.Lesson, error)
+	//GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error)
 }
 
 type Checklist interface {

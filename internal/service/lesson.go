@@ -16,23 +16,28 @@ func NewLessonService(storage storage.Lesson) *LessonService {
 	return &LessonService{storage: storage}
 }
 
-func (s *LessonService) CreateLesson(lesson *domain.Lesson) (int, error) {
-	return s.storage.CreateLesson(lesson)
+func (s *LessonService) CreateLesson(courseID int, lesson *domain.Lesson) (int, error) {
+	return s.storage.CreateLesson(courseID, lesson)
 }
 
-func (s *LessonService) GetLessonByName(name string) (*domain.Lesson, error) {
-	return s.storage.GetLessonByName(name)
+func (s *LessonService) GetLessonByName(courseID int, name string) (*domain.Lesson, error) {
+	return s.storage.GetLessonByName(courseID, name)
 }
 
-func (s *LessonService) GetLessonByID(id int) (*domain.Lesson, error) {
-	return s.storage.GetLessonByID(id)
+func (s *LessonService) GetLessonByID(courseID int, id int) (*domain.Lesson, error) {
+	return s.storage.GetLessonByID(courseID, id)
 }
 
-func (s *LessonService) UpdateLesson(id int, lessonData *domain.UpdateLesson) error {
-	return s.storage.UpdateLesson(id, lessonData)
+func (s *LessonService) GetAllLessons(courseID int) (*[]domain.Lesson, error) {
+	return s.storage.GetAllLessons(courseID)
+
 }
 
-func (s *LessonService) UploadFile(lessonID int, fileName string, fileData []byte) error {
+func (s *LessonService) UpdateLesson(courseID int, id int, lessonData *domain.UpdateLesson) error {
+	return s.storage.UpdateLesson(courseID, id, lessonData)
+}
+
+func (s *LessonService) UploadFile(courseID int, lessonID int, fileName string, fileData []byte) error {
 	//dir := "./lessonFiles"
 	//if err := os.MkdirAll(dir, os.ModePerm); err != nil {
 	//	return err
@@ -57,7 +62,7 @@ func (s *LessonService) UploadFile(lessonID int, fileName string, fileData []byt
 		return err
 	}
 
-	err = s.storage.UploadFile(lessonID, fileName, fileData)
+	err = s.storage.UploadFile(courseID, lessonID, fileName, fileData)
 	if err != nil {
 		return err
 	}
@@ -65,14 +70,14 @@ func (s *LessonService) UploadFile(lessonID int, fileName string, fileData []byt
 	return nil
 }
 
-func (s *LessonService) SendLessonForMarking(lessonID int) error {
-	return s.storage.SendLessonForMarking(lessonID)
+func (s *LessonService) SendLessonForMarking(courseID int, lessonID int) error {
+	return s.storage.SendLessonForMarking(courseID, lessonID)
 }
 
-func (s *LessonService) GetAllDoneLesson() (*[]domain.Lesson, error) {
-	return s.storage.GetAllDoneLesson()
-}
+//func (s *LessonService) GetAllDoneLesson() (*[]domain.Lesson, error) {
+//	return s.storage.GetAllDoneLesson()
+//}
 
-func (s *LessonService) GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error) {
-	return s.storage.GetAllDoneLessonByCourse(course)
-}
+//func (s *LessonService) GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error) {
+//	return s.storage.GetAllDoneLessonByCourse(course)
+//}
