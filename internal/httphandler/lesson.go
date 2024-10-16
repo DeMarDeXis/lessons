@@ -10,15 +10,8 @@ import (
 )
 
 func (h *Handler) createLesson(w http.ResponseWriter, r *http.Request) {
-	courseID := chi.URLParam(r, "course_id")
-	if courseID == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
-		return
-	}
-
-	courseIDInt, err := strconv.Atoi(courseID)
+	courseIDInt, err := h.getCourseIDFromRequest(w, r)
 	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
 		return
 	}
 
@@ -42,15 +35,8 @@ func (h *Handler) createLesson(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) getLessonByName(w http.ResponseWriter, r *http.Request) {
-	courseID := chi.URLParam(r, "course_id")
-	if courseID == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
-		return
-	}
-
-	courseIDInt, err := strconv.Atoi(courseID)
+	courseIDInt, err := h.getCourseIDFromRequest(w, r)
 	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
 		return
 	}
 
@@ -77,15 +63,8 @@ func (h *Handler) getLessonByName(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) getLessonByID(w http.ResponseWriter, r *http.Request) {
-	courseID := chi.URLParam(r, "course_id")
-	if courseID == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
-		return
-	}
-
-	courseIDInt, err := strconv.Atoi(courseID)
+	courseIDInt, err := h.getCourseIDFromRequest(w, r)
 	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
 		return
 	}
 
@@ -117,15 +96,8 @@ func (h *Handler) getLessonByID(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) getAllLessons(w http.ResponseWriter, r *http.Request) {
-	courseID := chi.URLParam(r, "course_id")
-	if courseID == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
-		return
-	}
-
-	courseIDInt, err := strconv.Atoi(courseID)
+	courseIDInt, err := h.getCourseIDFromRequest(w, r)
 	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
 		return
 	}
 
@@ -142,15 +114,8 @@ func (h *Handler) getAllLessons(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) updateLesson(w http.ResponseWriter, r *http.Request) {
-	courseID := chi.URLParam(r, "course_id")
-	if courseID == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
-		return
-	}
-
-	courseIDInt, err := strconv.Atoi(courseID)
+	courseIDInt, err := h.getCourseIDFromRequest(w, r)
 	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
 		return
 	}
 
@@ -185,15 +150,8 @@ func (h *Handler) updateLesson(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) uploadFile(w http.ResponseWriter, r *http.Request) {
-	courseID := chi.URLParam(r, "course_id")
-	if courseID == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
-		return
-	}
-
-	courseIDInt, err := strconv.Atoi(courseID)
+	courseIDInt, err := h.getCourseIDFromRequest(w, r)
 	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
 		return
 	}
 
@@ -227,15 +185,8 @@ func (h *Handler) uploadFile(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
-	courseID := chi.URLParam(r, "course_id")
-	if courseID == "" {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
-		return
-	}
-
-	courseIDInt, err := strconv.Atoi(courseID)
+	courseIDInt, err := h.getCourseIDFromRequest(w, r)
 	if err != nil {
-		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
 		return
 	}
 
@@ -257,6 +208,22 @@ func (h *Handler) sendLessonForMarking(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.WriteHeader(http.StatusOK)
+}
+
+func (h *Handler) getCourseIDFromRequest(w http.ResponseWriter, r *http.Request) (int, error) {
+	courseID := chi.URLParam(r, "course_id")
+	if courseID == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return 0, fmt.Errorf("empty course ID")
+	}
+
+	courseIDInt, err := strconv.Atoi(courseID)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid course ID")
+		return 0, fmt.Errorf("invalid course ID: %w", err)
+	}
+
+	return courseIDInt, nil
 }
 
 //TODO: do it

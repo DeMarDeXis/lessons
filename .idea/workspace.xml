@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a51ef867-09bc-49f5-9fae-a04e8bac767f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/httphandler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/httphandler/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/lesson.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/lesson.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/storage/postgres/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/postgres/lesson.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/000002_add_status_col_and_checklist.down.sql" beforeDir="false" afterPath="$PROJECT_DIR$/schema/000002_add_status_col_and_checklist.down.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
