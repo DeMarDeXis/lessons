@@ -13,6 +13,7 @@ type Courses interface {
 	UpdateCourse(id int, course *domain.UpdateCourse) error
 	GetAllCourses() (*[]domain.Course, error)
 	GetAllCoursesByTeacher(userID int) (*[]domain.Course, error)
+	DeleteCourse(id int) error
 }
 
 type Lesson interface {

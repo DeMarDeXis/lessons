@@ -107,3 +107,12 @@ func (t *Course) GetAllCoursesByTeacher(userID int) (*[]domain.Course, error) {
 	}
 	return &courses, nil
 }
+
+func (t *Course) DeleteCourse(id int) error {
+	q := fmt.Sprintf(`DELETE FROM %s WHERE id=$1`, coursesTable)
+	if _, err := t.db.Exec(q, id); err != nil {
+		t.logger.Error("failed to delete course", slog.String("err", err.Error()))
+		return err
+	}
+	return nil
+}

@@ -43,3 +43,17 @@ tasks:
       - echo "Stop docker machine..."
       - docker-machine stop default || echo "Failed to stop Docker machine"
       - echo "Success!! Pls check logs"
+
+  migrate-up:
+    aliases:
+      - mup
+    desc: "Run a command migrate-up"
+    cmds:
+      - migrate -path ./schema -database 'postgres://postgres:qwerty@192.168.99.100:5432?sslmode=disable' up
+
+  migrate-down:
+    aliases:
+      - mdown
+    desc: "Run a command migrate-down"
+    cmds:
+      - migrate -path ./schema -database 'postgres://postgres:qwerty@192.168.99.100:5432?sslmode=disable' down --all

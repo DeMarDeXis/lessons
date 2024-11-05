@@ -30,11 +30,13 @@ func (h *Handler) InitRoutes(logg *slog.Logger) chi.Router {
 	router.Use(middleware.RealIP)
 
 	router.Route("/courses", func(r chi.Router) {
+		r.Use(h.userIdentity)
 		r.Post("/create", h.createCourse)
 		r.Get("/id/{id}", h.getCourseByID)
 		r.Put("/update/{id}", h.updateCourse)
 		r.Get("/all", h.getAllCourses)
 		r.Get("/all/{id}", h.getAllCoursesByTeacher)
+		r.Delete("/delete/{id}", h.deleteCourse)
 		//r.Post("/apply", h.applyToCourse)
 		//r.Post("/add", h.addStudentToCourse)
 		r.Route("/{course_id}/lessons", func(insideRouter chi.Router) {
@@ -51,19 +53,6 @@ func (h *Handler) InitRoutes(logg *slog.Logger) chi.Router {
 			//r.Get("/done/course/{id}", h.getAllDoneLessonsByCourse)
 		})
 	})
-
-	//router.Route("/lessons", func(r chi.Router) {
-	//	r.Post("/create", h.createLesson)
-	//	r.Get("/name/{name}", h.getLessonByName)
-	//	r.Get("/id/{id}", h.getLessonByID)
-	//	r.Put("/update/{id}", h.updateLesson)
-	//	r.Post("/upload/{id}/{filename}", h.uploadFile)
-	//	r.Post("/send/{id}", h.sendLessonForMarking)
-	//	//TODO: check later
-	//	r.Get("/done", h.getAllDoneLessons)
-	//	//TODO: fix it
-	//	r.Get("/done/course/{id}", h.getAllDoneLessonsByCourse)
-	//})
 
 	return router
 }

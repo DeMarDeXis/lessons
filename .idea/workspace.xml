@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a51ef867-09bc-49f5-9fae-a04e8bac767f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/internal/httphandler/middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/service/auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6bb296f6-9dd4-48ff-96c7-51a747ea2ae7/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taskfile.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Taskfile.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/lessons/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/lessons/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/httphandler/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/lesson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/domain/lesson.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/domain/lesson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/httphandler/course.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/course.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/httphandler/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/httphandler/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/course.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/course.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/postgres/course.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/postgres/course.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/storage.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +68,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/GitHub/ТЗdeNick/lessons/docs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Documents/GitHub/ТЗdeNick/lessons/internal/httphandler&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -67,14 +82,15 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\ТЗdeNick\lessons\internal\httphandler" />
       <recent name="C:\Users\User\Documents\GitHub\ТЗdeNick\lessons\docs" />
     </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-5df93f7ad4aa-df9ad98b711f-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-242.21829.220" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-GO-242.21829.220" />
+        <option value="bundled-gosdk-5df93f7ad4aa-df9ad98b711f-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-242.23339.24" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-GO-242.23339.24" />
       </set>
     </attachedChunks>
   </component>

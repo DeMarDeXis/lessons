@@ -3,6 +3,7 @@ package service
 import (
 	"courses/internal/domain"
 	"courses/internal/storage"
+	"log/slog"
 )
 
 type Course interface {
@@ -11,6 +12,7 @@ type Course interface {
 	UpdateCourse(id int, course *domain.UpdateCourse) error
 	GetAllCourses() (*[]domain.Course, error)
 	GetAllCoursesByTeacher(userID int) (*[]domain.Course, error)
+	DeleteCourse(id int) error
 	//AddStudentToCourse(courseID int, userID int) error
 	//ApplyToCourse(courseID int, userID int) error
 	//RespondToCourse(courseID int, userID int) error
@@ -29,14 +31,20 @@ type Lesson interface {
 	//GetAllDoneLessonByCourse(course int) (*[]domain.Lesson, error)
 }
 
+type Auth interface {
+	ParseToken(token string) (int, error)
+}
+
 type Service struct {
 	Lesson
 	Course
+	Auth
 }
 
-func NewService(storage *storage.Storage) *Service {
+func NewService(storage *storage.Storage, logg *slog.Logger) *Service {
 	return &Service{
 		Lesson: NewLessonService(storage.Lesson),
 		Course: NewCourseService(storage.Courses),
+		Auth:   NewAuthService(logg),
 	}
 }

@@ -1,6 +1,7 @@
 # All routes and their descriptions
+**Host** = ```http://localhost:8080```
 ## Courses
-- **POST** > _create courses_ = '***/courses/create***'
+- **POST** > _create courses_ = ```/courses/create```
   - JSON-Body:
 ```
 {
@@ -15,7 +16,7 @@
 }
 ```
 
-- **GET** > _get course by id_ = '***/courses/id/3***'
+- **GET** > _get course by id_ = ```/courses/id/3```
   - Output:
 ```
 {
@@ -28,7 +29,7 @@
 }
 ```
 
-- **PUT** > _update course by id_ = '***/courses/update/3***'
+- **PUT** > _update course by id_ = ```/courses/update/3```
   - JSON-Body:
 ```
 {
@@ -41,8 +42,8 @@
 {status: "ok"}
 ```
 
-- **GET** > _get all courses_ = '***/courses/all***'
-- Output:
+- **GET** > _get all courses_ = ```/courses/all```
+  - Output:
 ```
 {
     "courses": [
@@ -74,8 +75,14 @@
 }
 ```
 
+- **DELETE** > _delete course by id_ = ```/courses/delete/3```
+  - Output:
+```
+"status": "ok"
+```
+
 ## Lessons
-- **POST** > _create lesson_ = '***/courses/2/lessons/create***'
+- **POST** > _create lesson_ = ```/courses/2/lessons/create```
   - JSON-Body:
 ```
 {
@@ -85,7 +92,7 @@
 }
 ```
 
-- **GET** > _get lesson by **id**_ = '***/courses/2/lessons/id/3***'
+- **GET** > _get lesson by **id**_ = ```/courses/2/lessons/id/3```
   - Output:
 ```
 {
@@ -99,7 +106,7 @@
 }
 ```
   
-- **GET** > _get lesson by **name**_ = '***/courses/2/lessons/name/check***'
+- **GET** > _get lesson by **name**_ = ```/courses/2/lessons/name/check```
   - Output:
 ```
 {
@@ -113,7 +120,7 @@
 }
 ```
 
-- **GET** > _get all lessons_ = '***/courses/2/lessons/all***'
+- **GET** > _get all lessons_ = ```/courses/2/lessons/all```
 - Output:
 ```
 [
@@ -147,7 +154,7 @@
 ]
 ```
   
-- **PUT** > update lesson = '***/courses/{course_id}/lessons/update/{id}***'
+- **PUT** > update lesson = ```/courses/{course_id}/lessons/update/{id}```
   + JSON-Body:
 ```
 {
@@ -157,13 +164,13 @@
 }
 ```
 
-- **POST** > attach file to the lesson = '***/courses/2/lessons/upload/{id_lesson}/{filename}***' 
+- **POST** > attach file to the lesson = ```/courses/2/lessons/upload/{id_lesson}/{filename}``` 
   + Output:
   ```
   File uploaded successfully
   ```
   
-- **POST** > tasks = '***/courses/{course_id}/lessons/send/{id}***'
+- **POST** > tasks = ```/courses/{course_id}/lessons/send/{id}```
   + Output:
   ```
   <status:ok>

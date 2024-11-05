@@ -5,6 +5,7 @@ go 1.22
 require (
 	github.com/fatih/color v1.17.0
 	github.com/go-chi/chi v1.5.5
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/ilyakaznacheev/cleanenv v1.5.0
 	github.com/jmoiron/sqlx v1.4.0
 	github.com/joho/godotenv v1.5.1

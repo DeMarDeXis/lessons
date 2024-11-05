@@ -47,8 +47,3 @@ type TeacherChecklist struct {
 	UpdatedAt string `json:"updated_at" db:"updated_at"`
 }
 
-//{
-//	"name": "check",
-//	"description": "check description"
-//	"status": "done"
-//}

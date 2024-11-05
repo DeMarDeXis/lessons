@@ -10,6 +10,14 @@ import (
 )
 
 func (h *Handler) createCourse(w http.ResponseWriter, r *http.Request) {
+	userID, err := h.getUserID(r)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusInternalServerError, "get user id")
+		return
+	}
+
+	h.logg.Debug("DBG_userID:", userID)
+
 	var input domain.Course
 
 	if err := json.NewDecoder(r.Body).Decode(&input); err != nil {
@@ -17,8 +25,9 @@ func (h *Handler) createCourse(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//TODO: init user from 'user service'
-	id, err := h.service.Course.CreateCourse(&input, 1)
+	input.OwnerID = userID
+	h.logg.Debug("DBG_course:", input.OwnerID)
+	id, err := h.service.Course.CreateCourse(&input, userID)
 	if err != nil {
 		newErrorResponse(w, h.logg, http.StatusInternalServerError, err.Error())
 		return
@@ -132,4 +141,26 @@ func (h *Handler) getAllCoursesByTeacher(w http.ResponseWriter, r *http.Request)
 		Courses: *courses,
 	}
 	json.NewEncoder(w).Encode(response)
+}
+
+func (h *Handler) deleteCourse(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+	if id == "" {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid ID")
+		return
+	}
+
+	idInt, err := strconv.Atoi(id)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusBadRequest, "invalid ID")
+		return
+	}
+
+	err = h.service.Course.DeleteCourse(idInt)
+	if err != nil {
+		newErrorResponse(w, h.logg, http.StatusInternalServerError, fmt.Sprintf("failed to delete course: %s, %e", id, err))
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
 }

@@ -20,15 +20,12 @@ import (
 )
 
 func main() {
-	//TODO: init config
 	cfg := config.InitConfig()
 
-	//TODO: init logger
 	logg := setupPrettySlogLocal()
 
 	logg.Info("starting lessons service", slog.String("env", cfg.Env))
 
-	//TODO: init db
 	db, err := postgres.New(postgres.StorageConfig{
 		Host:     cfg.Host,
 		Port:     cfg.StorageConfig.Port,
@@ -45,15 +42,12 @@ func main() {
 	storageInit := storage.NewStorage(db, logg)
 	logg.Info("storage init", slog.String("storage", "postgres"))
 
-	//TODO: init services
-	srvce := service.NewService(storageInit)
+	srvce := service.NewService(storageInit, logg)
 	logg.Info("service init", slog.String("service", "postgres"))
 
-	//TODO: init handlers and routes
 	handlers := httphandler.NewHandler(srvce, logg)
 	logg.Info("handler init", slog.String("handler", "postgres"))
 
-	//TODO: init server
 	srv := http.Server{
 		Addr:         cfg.Address + ":" + strconv.Itoa(cfg.HTTPServer.Port),
 		Handler:      handlers.InitRoutes(logg),
@@ -69,7 +63,6 @@ func main() {
 	}()
 	logg.Info("server started", slog.String("address", cfg.Address+":"+strconv.Itoa(cfg.HTTPServer.Port)))
 
-	//TODO: graceful shutdown
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
@@ -83,7 +76,6 @@ func main() {
 
 	logg.Info("server stopped by graceful shutdown")
 
-	// TODO: close db connection
 	if err := db.Close(); err != nil {
 		logg.Error("failed to close db connection", err)
 	} else {
@@ -104,3 +96,7 @@ func setupPrettySlogLocal() *slog.Logger {
 
 	return slog.New(handler)
 }
+
+//TODO: check unused handlers
+//TODO: check unused services methods
+//TODO: check TODO in lessons

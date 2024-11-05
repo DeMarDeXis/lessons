@@ -32,3 +32,7 @@ func (s *CourseService) GetAllCourses() (*[]domain.Course, error) {
 func (s *CourseService) GetAllCoursesByTeacher(userID int) (*[]domain.Course, error) {
 	return s.storage.GetAllCoursesByTeacher(userID)
 }
+
+func (s *CourseService) DeleteCourse(id int) error {
+	return s.storage.DeleteCourse(id)
+}
